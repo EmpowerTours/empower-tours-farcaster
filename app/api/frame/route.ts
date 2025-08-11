@@ -6,7 +6,7 @@ export async function GET() {
     <html>
       <head>
         <meta property="fc:frame" content="vNext" />
-        <meta property="fc:frame:image" content="public/IMG_4419.jpeg" />
+        <meta property="fc:frame:image" content="https://raw.githubusercontent.com/EmpowerTours/empower-tours-farcaster/refs/heads/main/public/IMG_4419.jpeg" />
         <meta property="fc:frame:button:1" content="Log Climb" />
         <meta property="fc:frame:button:1:action" content="post" />
         <meta property="fc:frame:button:1:target" content="/api/prepare-log-climb" />
