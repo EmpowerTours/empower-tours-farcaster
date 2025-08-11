@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
   try {
     const contract = getEmpowerToursContract();
     const calldata = empowerToursInterface.encodeFunctionData('logClimb', [climbData]);
-    const value = parseEther('0.001').toString(16);
+    const value = ethers.parseEther('0.001').toString(16);
     const valueHex = `0x${value}`;
 
     return new Response(JSON.stringify({
