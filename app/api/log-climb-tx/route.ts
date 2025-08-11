@@ -1,7 +1,7 @@
-import * as ethers from 'ethers';
 import type { NextRequest } from 'next/server';
 import { Message } from '@farcaster/core';
 import { empowerToursInterface, getEmpowerToursContract } from '@/lib/monad';
+import { parseEther } from 'ethers';
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
