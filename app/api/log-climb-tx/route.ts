@@ -1,3 +1,4 @@
+import * as ethers from 'ethers';
 import type { NextRequest } from 'next/server';
 import { Message } from '@farcaster/core';
 import { empowerToursInterface, getEmpowerToursContract } from '@/lib/monad';
@@ -15,7 +16,7 @@ export async function POST(req: NextRequest) {
   try {
     const contract = getEmpowerToursContract();
     const calldata = empowerToursInterface.encodeFunctionData('logClimb', [climbData]);
-    const value = ethers.parseEther('0.001').toString(16);
+    const value = parseEther('0.001').toString(16);
     const valueHex = `0x${value}`;
 
     return new Response(JSON.stringify({
