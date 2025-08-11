@@ -22,9 +22,11 @@ export async function GET() {
         <meta property="fc:frame:button:3:target" content="${baseUrl}/api/prepare-join-tournament" />
         <meta property="fc:frame:input:text" content="Enter climb details" />
       </head>
+      <body></body>
     </html>
   `, { headers: { 'Content-Type': 'text/html' } });
 }
+
 
 export async function POST(req: NextRequest) {
   return new Response('Frame root POST', { status: 200 });
