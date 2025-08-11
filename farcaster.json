@@ -1,0 +1,18 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOj765994LCJ0eXBlIjoiY3VzdG9keSIsImtleSI6IjB4NWM0NDA5Yzg4NzFjNzU2MDM5MjY0ZmZhMTdhNTE0Y2UzMTdmN2EzYyJ9",
+    "payload": "eyJkb21haW46ImVtcG93ZXItdG91cnMtZmFyY2FzdGVyLXByb2R1Y3Rpb24udXAucmFpbHdheS5hcHAifQ==",
+    "signature": "MHhhZjRhYmRmNjkyNzl4ODdmMzNiOWU3NDMwNzgzM2RhMWI2ZDhmM2I3OTc2YjA3ZWEwMGM1ZjYxMTAzZTc3YjY1MzQwY2ZkMjhjMmYzN2UyOWY3ODJhZDI4NDQ1ZTY0OTAzNTJjZWM5ZThmMWZhNmJhYjQ2ZThiODk2NDQxZjAxMzFi"
+  },
+  "frame": {
+    "version": "1",
+    "name": "EmpowerTours",
+    "iconUrl": "https://empower-tours-farcaster-production.up.railway.app/icon.png",
+    "homeUrl": "https://empower-tours-farcaster-production.up.railway.app",
+    "imageUrl": "https://empower-tours-farcaster-production.up.railway.app/image.png",
+    "buttonTitle": "Launch App",
+    "splashImageUrl": "https://empower-tours-farcaster-production.up.railway.app/splash.png",
+    "splashBackgroundColor": "#eeccff",
+    "webhookUrl": "https://empower-tours-farcaster-production.up.railway.app/api/webhook"
+  }
+}
