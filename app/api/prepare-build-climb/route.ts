@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
       <html>
         <head>
           <meta property="fc:frame" content="vNext" />
-          <meta property="fc:frame:image" content="https://your-domain.com/images/confirm-log-climb.png" />
+          <meta property="fc:frame:image" content="https://raw.githubusercontent.com/EmpowerTours/empower-tours-farcaster/refs/heads/main/public/IMG_4424.jpeg" />
           <meta property="fc:frame:button:1" content="Confirm Log Climb (0.001 MON)" />
           <meta property="fc:frame:button:1:action" content="tx" />
           <meta property="fc:frame:button:1:target" content="/api/log-climb-tx" />
