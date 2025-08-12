@@ -8,7 +8,7 @@ export const provider = new ethers.JsonRpcProvider(RPC_URL);
 const EMPOWERTOURS_ADDRESS = '0xB69D011496B7d7a5e5B3D0021dBF4468b0050AB6';
 const TOURS_TOKEN_ADDRESS = '0x2Da15A8B55BE310A7AB8EB0010506AB30CD6CBcf';
 
-// ABIs (full from provided code, with 'buildClimb' added based on context)
+// ABIs (unchanged except for removing incorrect buildClimb)
 const EMPOWERTOURS_ABI = [
     {
         "inputs": [
@@ -822,23 +822,6 @@ const EMPOWERTOURS_ABI = [
         ],
         "stateMutability": "view",
         "type": "function"
-    },
-    // Added buildClimb method to ABI
-    {
-        "inputs": [
-            {"internalType": "struct ClimbData", "name": "climbData", "type": "tuple", "components": [
-                {"internalType": "string", "name": "name", "type": "string"},
-                {"internalType": "uint256", "name": "grade", "type": "uint256"},
-                {"internalType": "string", "name": "description", "type": "string"},
-                {"internalType": "int256", "name": "lat", "type": "int256"},
-                {"internalType": "int256", "name": "long", "type": "int256"},
-                {"internalType": "string", "name": "imageCid", "type": "string"}
-            ]}
-        ],
-        "name": "buildClimb",
-        "outputs": [],
-        "stateMutability": "payable",
-        "type": "function"
     }
 ];
 
@@ -894,14 +877,38 @@ export function getToursTokenContract(signer?: ethers.Signer) {
   return new ethers.Contract(TOURS_TOKEN_ADDRESS, TOURS_ABI, signer || provider);
 }
 
-// Helper to encode calldata for buildClimb (updated from logClimb)
-export function encodeBuildClimb(climbData: any) {
-  return empowerToursInterface.encodeFunctionData("buildClimb", [climbData]);
+// Helper to encode calldata for addJournalEntryWithDetails (replaces encodeLogClimb)
+export function encodeBuildClimb(climbData: {
+  contentHash: string;
+  location: string;
+  difficulty: string;
+  isSharedOnFarcaster: boolean;
+  farcasterCastHash: string;
+}) {
+  return empowerToursInterface.encodeFunctionData("addJournalEntryWithDetails", [
+    climbData.contentHash,
+    climbData.location,
+    climbData.difficulty,
+    climbData.isSharedOnFarcaster,
+    climbData.farcasterCastHash
+  ]);
 }
 
-// Helper to encode calldata for createRoute (updated to match ABI's createClimbingLocation if intended, but keeping as is for now; change if needed)
-export function encodeCreateRoute(routeData: string) {
-  return empowerToursInterface.encodeFunctionData("createClimbingLocation", [routeData]); // Updated to use 'createClimbingLocation' from ABI
+// Helper to encode calldata for createClimbingLocation
+export function encodeCreateRoute(routeData: {
+  name: string;
+  difficulty: string;
+  latitude: number;
+  longitude: number;
+  photoHash: string;
+}) {
+  return empowerToursInterface.encodeFunctionData("createClimbingLocation", [
+    routeData.name,
+    routeData.difficulty,
+    routeData.latitude,
+    routeData.longitude,
+    routeData.photoHash
+  ]);
 }
 
 // Helper to encode calldata for joinTournament
